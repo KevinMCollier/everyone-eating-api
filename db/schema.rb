@@ -11,9 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_11_03_071609) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "answer_locations", force: :cascade do |t|
-    t.integer "answer_id", null: false
-    t.integer "location_id", null: false
+    t.bigint "answer_id", null: false
+    t.bigint "location_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["answer_id"], name: "index_answer_locations_on_answer_id"
@@ -22,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_03_071609) do
 
   create_table "answers", force: :cascade do |t|
     t.text "response"
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
