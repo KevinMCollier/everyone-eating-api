@@ -1,4 +1,4 @@
-class Api::V1::AnswersController
+class Api::V1::AnswersController < Api::V1::BaseController
   before_action :set_answer, only: [:show]
   before_action :set_question, only: [:index, :create]
 
